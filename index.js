@@ -84,8 +84,8 @@ client.subscribe("send-report-mail", async function ({ task, taskService }) {
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: "chandrakanta@onebillionideas.io",
-                pass: "xjmt mcom zvfs jaug",
+                user: "shubham@onebillionideas.io",
+                pass: "prue oirp xvyi kyva",
             },
         });
 
