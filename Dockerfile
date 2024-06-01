@@ -5,10 +5,12 @@ FROM node:18-alpine
 WORKDIR /usr/src/app
 
 # Copy the package.json and package-lock.json from your project into the working directory
+# Ensuring both files are optional
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+# 'npm ci' is preferred for installations where package-lock.json is available as it's cleaner and more consistent
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 # Bundle your app's source code inside the Docker container
 COPY . .
@@ -16,5 +18,6 @@ COPY . .
 # Your application binds to port 3001, make sure the container listens on this port at runtime.
 EXPOSE 3001
 
-# Define the command to run your app using CMD which defines your runtime
-CMD ["nodemon", "index.js"]
+# Define the command to run your app
+# Using 'npm start' to run your application
+CMD ["npm", "start"]
