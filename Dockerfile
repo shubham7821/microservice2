@@ -6,11 +6,11 @@ WORKDIR /usr/src/app
 
 # Copy the package.json and package-lock.json from your project into the working directory
 # Ensuring both files are optional
-COPY package*.json ./
+COPY . .
 
 # Install dependencies
 # 'npm ci' is preferred for installations where package-lock.json is available as it's cleaner and more consistent
-RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
+RUN npm install
 
 # Bundle your app's source code inside the Docker container
 COPY . .
