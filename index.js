@@ -7,7 +7,7 @@ const app = express()
 const nodemailer = require("nodemailer");
 
 const config = {
-    baseUrl: "http://13.235.39.142:8080/engine-rest",
+    baseUrl: "http://13.202.70.97:8080/engine-rest",
     use: logger,
     asyncResponseTimeout: 10000
 };
